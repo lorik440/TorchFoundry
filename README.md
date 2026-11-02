@@ -34,6 +34,22 @@ Abstracting away complexity can introduce limitations and hide implementation de
 TorchFoundry is currently under development. Features, functionality, and APIs are subject to change.
 See the [todo](todo.md) for a list of planned features and improvements.
 
+### 📚 Project and Community Resources
+
+#### GitHub Templates
+
+- [Bug report](.github/ISSUE_TEMPLATE/bug_report.md) — Report a problem and provide details to help reproduce it.
+- [Feature request](.github/ISSUE_TEMPLATE/feature_request.md) — Suggest an improvement or new capability for TorchFoundry.
+- [General question](.github/ISSUE_TEMPLATE/question.yml) — Ask a question that does not fit a bug report or feature request.
+- [Pull request template](.github/ISSUE_TEMPLATE/pull_request_template.md) — Summarize your changes, testing, and contribution checklist when opening a pull request.
+
+#### Guides and Policies
+
+- [Contributing guidelines](CONTRIBUTING.md) — Learn how to get started and contribute changes.
+- [Code of Conduct](CODE_OF_CONDUCT.md) — Read the community standards for respectful participation.
+- [Security policy](SECURITY.md) — Find supported-version information and how to report a security vulnerability.
+- [Accessibility guidelines](ACCESSIBILITY.md) — Review TorchFoundry's accessibility goals, expectations, and known limitations.
+
 ### Notice: TorchFoundry is a personal project and is not affiliated with or endorsed by the PyTorch organization.
 
 ### 📄 License
