@@ -1,5 +1,10 @@
 # ⚒️ TorchFoundry
 
+[![Quality Checks](https://github.com/lorik440/TorchFoundry/actions/workflows/test.yml/badge.svg)](https://github.com/lorik440/TorchFoundry/actions/workflows/test.yml)
+[![PyPI version](https://img.shields.io/pypi/v/torchfoundry)](https://pypi.org/project/torchfoundry/)
+[![Python versions](https://img.shields.io/pypi/pyversions/torchfoundry)](https://pypi.org/project/torchfoundry/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **find your PyTorch workflow.**
 
 TorchFoundry is a Python library designed to simplify and improve everyday workflows when working with PyTorch.
