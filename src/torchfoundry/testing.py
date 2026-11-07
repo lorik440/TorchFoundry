@@ -5,7 +5,12 @@ from torch import nn
 from torch.utils.data import DataLoader
 
 
-def testModel(model, dataloader, loss_fn: Callable[[torch.Tensor, torch.Tensor], torch.Tensor], path ):
+def testModel(
+    model,
+    dataloader,
+    loss_fn: Callable[[torch.Tensor, torch.Tensor], torch.Tensor],
+    path,
+):
     """
     Evaluates a PyTorch model on a dataset and reports its average loss
     and accuracy.

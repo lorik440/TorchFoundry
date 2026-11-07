@@ -89,7 +89,7 @@ def prepareDataset(dataset, type:Selector, root, transformer):
 
     if type =="train":
         train=True
-    else:
+    if type =="test":
         train=False
 
     dataset_class=getDatasetClass(dataset)
@@ -144,7 +144,7 @@ def loadDataset(
         return training_data
     
     elif type =="test":
-        train=True
+        
         test_data=prepareDataset(dataset, type, root, transformer)
         testing_data= DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
 
