@@ -5,7 +5,6 @@ from torch import nn
 from torch.utils.data import DataLoader
 
 from .model import loadModel, saveModel
-from .testing import testModel
 
 
 def trainModel(model, dataloader, loss_fn, optimizer, epoch, path=None, ):

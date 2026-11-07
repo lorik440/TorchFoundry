@@ -1,8 +1,9 @@
+from collections.abc import Callable
+
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
 
-from collections.abc import Callable
 
 def testModel(model, dataloader, loss_fn: Callable[[torch.Tensor, torch.Tensor], torch.Tensor], path ):
     """
@@ -69,7 +70,7 @@ def testModel(model, dataloader, loss_fn: Callable[[torch.Tensor, torch.Tensor],
     accuracy = correct / total_samples
 
     print(
-        f"\nTest results:",
+        "\nTest results:",
         "\n-----------------------------------",
         f"\nAccuracy: {accuracy * 100:.1f}%"
         f"\nAverage loss: {average_loss:.6f}",

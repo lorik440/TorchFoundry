@@ -1,10 +1,10 @@
+from collections.abc import Sequence
 from pathlib import Path
 
 import torch
 from torch import nn
 from torchinfo import summary
 
-from collections.abc import Sequence
 
 def createModel(
     layers: nn.Module | Sequence[nn.Module],
