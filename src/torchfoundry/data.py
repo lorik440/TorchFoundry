@@ -145,7 +145,7 @@ def loadDataset(
     
     elif type =="test":
         train=True
-        test_data=prepareDataset(dataset, train, root, root, transformer)
+        test_data=prepareDataset(dataset, type, root, transformer)
         testing_data= DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
 
         return testing_data
