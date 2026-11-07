@@ -4,12 +4,13 @@ import torch
 from torch import nn
 from torchinfo import summary
 
+from collections.abc import Sequence
 
 def createModel(
-    layers: nn.Module | list[nn.Module],
+    layers: nn.Module | Sequence[nn.Module],
     path=None,
     show_Summary: bool = False,
-    input_size: tuple[int, ...] = None,
+    input_size: tuple[int, ...] | None=None,
 ):
     """
        Creates a PyTorch neural network and optionally loads pretrained weights
@@ -32,7 +33,7 @@ def createModel(
 
     # model device runtime
     if torch.accelerator.is_available():
-        device=torch.accelerator.current_accelerator
+        device=torch.accelerator.current_accelerator()
     else:
         device='cpu'
 
@@ -136,7 +137,7 @@ def loadModel(model: nn.Module, path: str|Path):
         raise ValueError("module must be a Pytorch nn.Module")
     
     if torch.accelerator.is_available():
-        device=torch.accelerator.current_accelerator
+        device=torch.accelerator.current_accelerator()
     else:
         device='cpu'
     

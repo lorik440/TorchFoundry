@@ -23,6 +23,9 @@ Notable changes to TorchFoundry are documented in this file. Each version includ
 - Added package metadata, runtime dependencies, and development dependencies.
 - Readme file updated to reflect the new project name and provide installation instructions.
 - Updated dataset and training utilities to support configurable dataset inputs, batch/shuffle options, epoch validation, and optional checkpoint saving.
+- Updated test dataset preparation to use the requested dataset split.
+- Updated model layer type hints to accept sequences and corrected accelerator selection.
+- Added checkpoint loading before training and checkpoint-based evaluation, and updated the FashionMNIST example to use the checkpoint.
 - Updated the README with a notice clarifying that TorchFoundry is not affiliated with or endorsed by the PyTorch organization.
 - Marked completed dataset, model, and training tasks in the project TODO list.
 
