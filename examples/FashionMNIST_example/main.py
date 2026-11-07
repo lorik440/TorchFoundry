@@ -19,6 +19,9 @@ train_data, test_data = tf.loadDataset(
     transformer=ToTensor()
 )
 
+# Get a batch of training images and labels to inspect their shapes.
+images, labels = next(iter(train_data))
+print(images.shape)
 
 # Define the neural network architecture by listing its layers.
 # Each layer processes the output of the previous layer.
@@ -79,14 +82,20 @@ model = tf.trainModel(
     train_data,
     loss_fn,
     optimizer,
-    epoch=5
+    epoch=5,
+    path="examples/FashionMNIST_example/model.pth",
 )
 
 
 # Evaluate the trained model using the test dataset.
 # This helps measure how well the model performs on data used for evaluation
 # rather than for updating its weights.
-tf.testModel(model, test_data, loss_fn)
+tf.testModel(
+    model, 
+    test_data, 
+    loss_fn,
+    path="examples/FashionMNIST_example/model.pth",
+)
 
 
 # Save the trained model's weights so they can be loaded and reused later.
@@ -94,4 +103,3 @@ tf.saveModel(
     model,
     path="examples/FashionMNIST_example/model.pth"
 )
-
