@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader
 
 from .model import loadModel, saveModel
 
+from collections.abc import Sized
 
 def trainModel(model, dataloader, loss_fn, optimizer, epoch, path=None, ):
     """
@@ -50,7 +51,12 @@ def trainModel(model, dataloader, loss_fn, optimizer, epoch, path=None, ):
     if path is not None:
         model = loadModel(model, path)
 
-    size=len(dataloader.dataset)
+    dataset =dataloader.dataset
+
+    if isinstance(dataset, Sized):
+        size=len(dataset)
+    else:
+        size=0
 
     model.train()
     for e in range(epoch):
