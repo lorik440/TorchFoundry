@@ -47,7 +47,8 @@ def testModel(
         map_location=device,
         weights_only=True
     )
-
+    
+    model=model.to(device)
     model.load_state_dict(state_dict)
     model.eval()
 
