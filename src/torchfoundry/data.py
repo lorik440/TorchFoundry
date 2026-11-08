@@ -44,7 +44,7 @@ def getDatasetClass(name: str ):
 
 Selector=Literal["train","test"]
 
-def prepareDataset(dataset, type:Selector, root, transformer):
+def prepareDataset(dataset, type: Selector, root, transformer):
     """
     Create a torchvision dataset for the selected split.
 
@@ -52,7 +52,7 @@ def prepareDataset(dataset, type:Selector, root, transformer):
     ----------
     dataset : str
         Name of the dataset class in torchvision.datasets.
-    type : {"train", "test"} or None
+    type : {"train", "test"}
         Select the training or testing split.
     root : str, pathlib.Path, or None
         Dataset directory. If None, uses "data" without downloading.
@@ -72,10 +72,8 @@ def prepareDataset(dataset, type:Selector, root, transformer):
         If torchvision.datasets cannot be imported.
     """
 
-    if type is not None and not isinstance(type, str):
-        raise ValueError("type must be a string or None")
-    if type not in ("train", "test", None):
-        raise ValueError("type must have value 'train', 'test', or None")
+    if not isinstance(type, str) or type not in ("train", "test"):
+        raise ValueError("type must have value 'train' or 'test'")
     if root is not None and not isinstance(root, (str, Path)):
         raise ValueError("root must be a string, pathlib.Path, or None")
     if transformer is not None and not callable(transformer):
@@ -87,10 +85,7 @@ def prepareDataset(dataset, type:Selector, root, transformer):
     else:
         download=True
 
-    if type =="train":
-        train=True
-    if type =="test":
-        train=False
+    train = type == "train"
 
     dataset_class=getDatasetClass(dataset)
 
@@ -146,7 +141,7 @@ def loadDataset(
     elif type =="test":
         
         test_data=prepareDataset(dataset, type, root, transformer)
-        testing_data= DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+        testing_data= DataLoader(test_data, batch_size=batch_size, shuffle=shuffle)
 
         return testing_data
     
