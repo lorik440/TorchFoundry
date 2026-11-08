@@ -1,3 +1,4 @@
+from collections.abc import Sized
 from pathlib import Path
 
 import torch
@@ -6,7 +7,6 @@ from torch.utils.data import DataLoader
 
 from .model import loadModel, saveModel
 
-from collections.abc import Sized
 
 def trainModel(model, dataloader, loss_fn, optimizer, epoch, path=None, ):
     """
