@@ -82,9 +82,11 @@ def trainModel(model, dataloader, loss_fn, optimizer, epoch, path=None, ):
     if path is not None:
         if not isinstance(path, (str, Path)):
             raise ValueError("save_dict must be string or pathlib.Path")
+        try:
+            path =Path(path)
+            path.parent.mkdir(parents=True,exist_ok=True)
+            saveModel(model,path)
+        except Exception as e:
+            print("failed while savin the model after training. error: ",e)
         
-        saveModel(model,path)
-
-        
-
     return model
