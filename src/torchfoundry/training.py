@@ -62,22 +62,31 @@ def trainModel(model, dataloader, loss_fn, optimizer, epoch, path=None, ):
     for e in range(epoch):
         print("")
         print(f"epoch {e+1}\n-----------------------------------", flush=True)
+        epoch_loss = 0.0
+        epoch_samples = 0
         for batch, (x,y) in enumerate(dataloader):
             x=x.to(device)
             y=y.to(device)
 
             pred=model(x)
             loss=loss_fn(pred,y)
+            
+            batch_loss = loss.item()
+            batch_size = x.size(0)
+            epoch_loss += batch_loss * batch_size
+            epoch_samples += batch_size
 
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
 
             if batch % 100==0:
-                loss=loss.item()
                 current=(batch+1)*len(x)
 
-                print(f"loss: {loss:>7f} [{current:>5d}/{size:>5d}]")
+                print(f"loss: {batch_loss:>7f} [{current:>5d}/{size:>5d}]")
+
+        if epoch_samples:
+            print(f"Average training loss: {epoch_loss / epoch_samples:.6f}", flush=True)
      
     if path is not None:
         if not isinstance(path, (str, Path)):
